@@ -11,7 +11,7 @@ output:
 require(knitr)
 require(tidyverse)
 require(tigerstats)
-
+GSS <- read.csv(file = "GSScsv.csv")
 ```
 
 # Introduction
@@ -32,13 +32,24 @@ $H_a$ There is a significant difference in average score on the WORDSUM test bet
 
 ## Descriptive Results
 
+
 ### Graphical Descriptive Results
 
 <!--Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+```{r}
+boxplot(WORDSUM~DEGREE,data=GSS)
+```
+
+From the graphical descriptive data, I see that two boxes are clarly beneath the others, meaning that there probably is a statistical difference here.  
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+```{r}
+favstats(WORDSUM~DEGREE,data=GSS)
+```
 
 ## Inferential Results
 
